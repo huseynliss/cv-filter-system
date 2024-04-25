@@ -23,8 +23,6 @@ public class CvFilterController {
     @PostMapping("/filter-cv")
     public ResponseEntity<?> filterCVs(@RequestBody CVFilterDTO cvFilterDTO
     ) {
-
-
         return gmailMessagesService.searchMessages(
                 cvFilterDTO);
     }

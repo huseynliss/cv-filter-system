@@ -31,9 +31,7 @@ public class ApplicantResponse {
 
     private String vacancyName;
 
-
     private String companyUsername;
-
 
     private Long applicantCVId;
 }

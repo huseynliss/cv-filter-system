@@ -63,7 +63,6 @@ public class GmailMessagesService {
             AndTerm finalAndTerm = new AndTerm(finalSearchTerms);
 
             Message[] filteredMessages = inbox.search(finalAndTerm);
-//            Message[] filteredMessages = inbox.search(searchTerm);
             List<String> stringList = new ArrayList<>();
             List<ApplicantResponse> applicantResponseList = new ArrayList<>();
 
@@ -72,7 +71,6 @@ public class GmailMessagesService {
                     System.out.println(message.getInputStream());
                     InputStream inputStream1 = message.getInputStream();
                     Multipart multipart = new MimeMultipart(new ByteArrayDataSource(inputStream1, "multipart/mixed"));
-//                    Multipart multipart = (Multipart) message.getContent();
                     for (int i = 0; i < multipart.getCount(); i++) {
                         BodyPart bodyPart = multipart.getBodyPart(i);
                         if (bodyPart.getContentType().toLowerCase().contains("application/pdf")) {

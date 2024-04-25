@@ -22,7 +22,6 @@ public class EmailSendController {
 
     @PostMapping("send-mail-to-all-applicants/{companyUsername}")
     public ResponseEntity<?> sendMailsToAllApplicants(@PathVariable String companyUsername, @RequestParam("subject") String subject, @RequestParam("body") String body, @RequestParam("applicantStatus") ApplicationStatus applicationStatus) {
-
         return emailService.sendApprovedOrRejectionMailsToAllApplicants(companyUsername, subject, body, applicationStatus);
     }
 

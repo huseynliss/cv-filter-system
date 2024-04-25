@@ -35,19 +35,16 @@ public class ApplicantController {
         return applicantService.getAllApplicants(companyUsername);
     }
     @PreAuthorize("hasRole('client_admin')")
-
     @GetMapping("/get-by-id/{id}")
     public ResponseEntity<ApplicantResponse> getApplicantById(@PathVariable Long id) {
         return applicantService.getApplicantById(id);
     }
     @PreAuthorize("hasRole('client_admin')")
-
     @PutMapping("/update-applicant/{applicantId}")
     public ResponseEntity<ApplicantResponse> updateApplicant(@PathVariable Long applicantId, @RequestBody ApplicantUpdateRequest applicantUpdateRequest) {
         return applicantService.updateApplicant(applicantId, applicantUpdateRequest);
     }
     @PreAuthorize("hasRole('client_admin')")
-
     @DeleteMapping("/delete-by-id/{id}")
     public ResponseEntity<Void> deleteApplicant(@PathVariable Long id) {
         return applicantService.deleteApplicant(id);

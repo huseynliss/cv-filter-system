@@ -17,13 +17,11 @@ public class ApplicantCVController {
         this.applicantCVService = applicantCVService;
     }
     @PreAuthorize("hasRole('client_admin')")
-
     @GetMapping("get-cv-file-by-id/{id}")
     public ResponseEntity<?> getCVFileById(@PathVariable Long id) throws FileNotFoundException {
         return applicantCVService.getVideoById(id);
     }
     @PreAuthorize("hasRole('client_admin')")
-
     @GetMapping("get-cv-file-by-applicantId/{applicantId}")
     public ResponseEntity<?> getCVFileByApplicantId(@PathVariable Long applicantId) throws FileNotFoundException {
         return applicantCVService.getVideoByApplicantId(applicantId);

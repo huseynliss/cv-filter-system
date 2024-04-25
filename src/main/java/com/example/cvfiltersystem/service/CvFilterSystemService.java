@@ -77,7 +77,7 @@ public class CvFilterSystemService {
             System.out.println("work experience: " + totalOfWorkExperienceYears);
             double workExperienceScore = calculateWorkExperienceScore(totalOfWorkExperienceYears, Math.toIntExact(experienceYearsRequirements));
 
-            double totalScoreOfCV = calculateTotalScore(skillsRequirements == null || skillsRequirements.contains("") ? 100 : skillsFinalScore, languagesRequirements == null || languagesRequirements.contains("") ? 100 : languageFinalScore, experienceYearsRequirements == null || experienceYearsRequirements==0 ? 100 : workExperienceScore,
+            double totalScoreOfCV = calculateTotalScore(skillsRequirements == null || skillsRequirements.contains("") ? 100 : skillsFinalScore, languagesRequirements == null || languagesRequirements.contains("") ? 100 : languageFinalScore, experienceYearsRequirements == null || experienceYearsRequirements == 0 ? 100 : workExperienceScore,
                     residencePlaceRequirements == null || residencePlaceRequirements.contains("") ? true : residencePlaceBoolean, educationLevel == null || educationLevel.equals("") ? null : educationAndFieldBoolean, certificatesRequirements == null || certificatesRequirements.contains("") ? true : certificatesBoolean);
 
             ApplicantResponse applicantResponse = createApplicantObject(file, fullNameFromPdf, certificatesFromPdf,
@@ -216,11 +216,8 @@ public class CvFilterSystemService {
         applicantCV.setFileName(file.getName());
         applicantCV.setApplicantId(saved.getId());
         ApplicantCV savedApplicationCV = applicantCVRepository.save(applicantCV);
-
         ApplicantResponse applicantResponse = modelMapper.map(saved, ApplicantResponse.class);
         applicantResponse.setApplicantCVId(savedApplicationCV.getId());
-
-
         return applicantResponse;
     }
 }

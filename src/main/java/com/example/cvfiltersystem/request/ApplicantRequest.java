@@ -36,7 +36,6 @@ public class ApplicantRequest {
 
     private String vacancyName;
 
-
     private String companyUsername;
 
 
